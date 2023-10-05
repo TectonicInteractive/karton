@@ -230,6 +230,8 @@ class DockerMixin(KartonMixin):
             'debian': 'debian',
             'Fedora': 'fedora',
             'CentOS Linux': 'centos',
+            'Amazon Linux': 'amazonlinux',
+            'Amazon Lambda NodeJS': 'amazon/aws-lambda-nodejs'
             }
 
         current_distro = platform.linux_distribution()[0]

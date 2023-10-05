@@ -141,6 +141,9 @@ class Emitter(object):
             self._emit_install('apt-utils')
             self._emit_install('locales')
 
+        if self._props.rpm_based:
+            self._emit_install('shadow-utils')
+
         if self._props.sudo != DefinitionProperties.SUDO_NO:
             self._emit_install('sudo')
 

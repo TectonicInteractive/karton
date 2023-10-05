@@ -79,6 +79,7 @@ class DockerfileTestCase(DockerfileMixin,
             'ubuntu', 'ubuntu:latest', 'ubuntu:trusty',
             'fedora', 'fedora:lastest', 'fedora:25',
             'centos', 'centos:latest', 'centos:6',
+            'amazon/aws-lambda-nodejs', 'amazonlinux'
             )
         for name in names:
             # pylint: disable=cell-var-from-loop

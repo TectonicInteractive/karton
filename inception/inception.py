@@ -74,6 +74,8 @@ RUN \
     yum -y install docker-ce
 '''
 
+AMAZON_BASIC_SETUP = CENTOS_BASIC_SETUP
+
 # For Fedora we use the distro packages.
 FEDORA_BASIC_SETUP = '''\
 RUN \
@@ -302,7 +304,7 @@ def main(arguments):
     else:
         die('Invalid distribution: "%s".' % parsed_args.distro_and_tag)
 
-    if distro_name not in ('ubuntu', 'debian', 'centos', 'fedora'):
+    if distro_name not in ('ubuntu', 'debian', 'centos', 'fedora', 'amazon/aws-lambda-nodejs', 'amazonlinux'):
         die('Invalid distro name: "%s".' % distro_name)
 
     if not distro_tag:
@@ -316,6 +318,8 @@ def main(arguments):
         basic_setup = DEB_BASIC_SETUP
     elif distro_name == 'centos':
         basic_setup = CENTOS_BASIC_SETUP
+    elif distro_name in ('amazon/aws-lambda-nodejs', 'amazonlinux'):
+        basic_setup = AMAZON_BASIC_SETUP
     elif distro_name == 'fedora':
         basic_setup = FEDORA_BASIC_SETUP
     else:

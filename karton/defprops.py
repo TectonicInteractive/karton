@@ -442,7 +442,7 @@ class DefinitionProperties(object):
             raise DefinitionError(self._definition_file_path,
                                   'Invalid distro: "%s"' % distro)
 
-        if distro_name not in ('ubuntu', 'debian', 'centos', 'fedora'):
+        if distro_name not in ('ubuntu', 'debian', 'centos', 'fedora', 'amazon/aws-lambda-nodejs', 'amazonlinux'):
             raise DefinitionError(self._definition_file_path,
                                   'Invalid distro name: "%s"' % distro_name)
 
@@ -487,7 +487,7 @@ class DefinitionProperties(object):
         Whether the currently selected distro is based on RPM packages (i.e. it's CentOS or
         Fedora).
         '''
-        return self.distro_name in ('centos', 'fedora')
+        return self.distro_name in ('centos', 'fedora', 'amazon/aws-lambda-nodejs', 'amazonlinux')
 
     @props_property
     def docker_distro_full_name(self):
